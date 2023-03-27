@@ -24,6 +24,12 @@ public class Graph{
             //this.adjacencyList[destination].insertAtEnd(source);
         }
     }
+
+    public void removeEdge(int source, int destination){
+        if(source < vertices && destination < vertices ){
+            this.adjacencyList[source].deleteByValue(destination);
+        }
+    }
     public void printGraph()
     {
         System.out.println(">>Adjacency List of Directed Graph<<");
@@ -46,4 +52,5 @@ public class Graph{
             }
         }
     }
+
 }
