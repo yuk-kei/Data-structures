@@ -1,6 +1,6 @@
-package Graphs;
+package graphs;
 
-import LinkedLists.DoublyLinkedList;
+import linkedLists.DoublyLinkedList;
 
 public class CheckNumEdges {
     public static int numEdges(Graph g) {

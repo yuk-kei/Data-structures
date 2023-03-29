@@ -1,4 +1,4 @@
-package LinkedLists;
+package linkedLists;
 
 public class DoublyLinkedList<T> {
 

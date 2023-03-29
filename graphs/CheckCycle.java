@@ -1,6 +1,6 @@
-package Graphs;
+package graphs;
 
-import LinkedLists.DoublyLinkedList;
+import linkedLists.DoublyLinkedList;
 
 public class CheckCycle {
     public static boolean detectCycle(Graph g){

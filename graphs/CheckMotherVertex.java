@@ -1,6 +1,6 @@
-package Graphs;
+package graphs;
 
-import LinkedLists.DoublyLinkedList;
+import linkedLists.DoublyLinkedList;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package Queue;
+package queue;
 
 public class Queue<V> {
     private int maxSize;

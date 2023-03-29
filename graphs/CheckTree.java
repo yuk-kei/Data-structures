@@ -1,7 +1,7 @@
-package Graphs;
+package graphs;
 
 
-import LinkedLists.DoublyLinkedList;
+import linkedLists.DoublyLinkedList;
 
 public class CheckTree {
     public static boolean isTree(Graph g) {

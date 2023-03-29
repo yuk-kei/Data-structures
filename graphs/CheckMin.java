@@ -1,7 +1,7 @@
-package Graphs;
+package graphs;
 
-import LinkedLists.DoublyLinkedList;
-import Queue.Queue;
+import linkedLists.DoublyLinkedList;
+import queue.Queue;
 
 
 public class CheckMin {

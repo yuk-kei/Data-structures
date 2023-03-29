@@ -1,6 +1,6 @@
-package Graphs;
+package graphs;
 
-import LinkedLists.DoublyLinkedList;
+import linkedLists.DoublyLinkedList;
 
 public class Graph{
     int vertices; //Total number of vertices in graph

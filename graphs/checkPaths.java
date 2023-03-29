@@ -1,6 +1,6 @@
-package Graphs;
+package graphs;
 
-import LinkedLists.DoublyLinkedList;
+import linkedLists.DoublyLinkedList;
 
 public class checkPaths {
     public static boolean checkPath(Graph g, int source, int destination) {
