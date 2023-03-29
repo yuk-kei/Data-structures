@@ -35,6 +35,7 @@ Here are some other common terminologies used in trees:
   
 - **Height of a Node**:
   The maximum number of connections between the node and a leaf node in its path is known as the height of that node.
+  
 - **Height of a Tree**:
   The height of a tree is simply the height of its root node.
 
@@ -66,12 +67,18 @@ A balanced tree is a tree in which almost all leaf nodes are present at the same
 $$
 Height(Tree)=O(log(nodes))
 $$
+
+
 Or in simpler words, make the tree “height-balanced”; i.e. the difference between the height of the left and right sub-trees of each node should not be more than **one.** Mathematically, it can be written as:
 $$
 ∣Height(LeftSubTree)−Height(RightSubTree)∣<=1
 $$
 
+
+
 > A binary tree is height-balanced if, for each node in the tree, the difference between the height of the right subtree and the left subtree is at most one.
+
+
 
 ### Steps to Check if Tree is Balanced
 
@@ -116,7 +123,7 @@ A Binary Tree is said to be *complete* if it satisfies the following properties:
   $$
   2 ^{h}
   $$
-
+  
 - The nodes are present in between the range of:
 
 $$
@@ -171,8 +178,6 @@ There are two types of Skewed Binary Trees based on which side is dominated:
 - ***Left-Skewed Binary Tree***
 - ***Right-Skewed Binary Tree***
 
-> ### Note[#](https://www.educative.io/module/page/Z4JLg2tDQPVv6QjgO/10370001/6546848606322688/5682634698260480#Note)
->
 > Try your best to avoid such tree structures, especially in the case of a Binary Search Tree, as it will kill efficient searching (the core purpose of a Binary Search Tree).
 
 
@@ -185,6 +190,7 @@ For all the nodes in a BST, the values of all the nodes in the left sub-tree of 
 $$
 NodeValues(LeftSubtree)<=CurrentNodeValue<NodeValues(RightSubTree)
 $$
+
 
 
 ###  Deletion in Binary Search Trees
@@ -351,7 +357,7 @@ After performing a successful rotation for the **first** *unbalanced* Node **U**
 
 ### Time Complexity
 
-Balancing the tree doesn’t result in a tree being perfectly balanced, but it is good enough to get the time complexity close to O(logn) for basic operations like *searching*, *deletion*, and *insertion*.
+Balancing the tree doesn’t result in a tree being perfectly balanced, but it is good enough to get the time complexity close to **O(logn)** for basic operations like *searching*, *deletion*, and *insertion*.
 
 ### AVL vs Red-Black Trees
 
@@ -400,24 +406,72 @@ If Node U (*uncle*) is **black**, then we come across four different scenarios b
 
 
 
+#### Case 1: Left-Left
+
+When Node P is the *leftChild* of Node G, and *currentNode* is the *leftChild* of Node P, we perform the following steps:
+
+1. Rotate Node G towards the Right
+2. Swap the colors of Nodes G and P
+
+#### Case 2: Left-Right
+
+When Node P is the *leftChild* of Node G, and currentNode is the *rightChild* of Node P, we perform the following steps:
+
+1. Rotate Node P towards the Left
+2. After that, repeat the steps that we covered in Left-Left case
+
+#### Case 3: Right-Right
+
+When Node P is the *rightChild* of Node G, and *currentNode* is the *rightChild* of Node P, we perform the following steps:
+
+1. Rotate Node G towards the Left
+2. Swap the colors of Nodes G and P
+
+#### Case 4: Right-Left
+
+When Node P is the *rightChild* of Node G, and *currentNode* is the *leftChild* of Node P, we perform the following steps:
+
+1. Rotate Node P towards Right
+2. After that, repeat the steps that we covered in Right-Right case
+
+
+
+### Conclusion for insert:
+
 - Assume Current C Red, insert like BST, if it is root, change it to Black.
 - Check parent P
   - If it is Black, just add after P
   - If P is Red, Check the Uncle U
-    - If U is red, Change P and U to be Black, and grandfather P to be the Current C and Red. And repeat the same process.
+    - If U is red, Change P and U to be Black, and grandparent G to be the Current C and Red. And repeat the same process.
     - If U is black, we would perform some rotation base on scenarios:
       - Left-Left: 
         1. Rotate Node G towards the Right
         2. Swap the colors of Nodes G and P
-      - Left-Right: Node P is the *leftChild* of Node G, and *currentNode* is the *rightChild* of Node P
-      - Right-Right: Node P is the *rightChild* of Node G, and *currentNode* is the *rightChild* of Node P
-      - Right-Left: Node P is the *rightChild* of Node G, and *currentNode* is the *leftChild* of Node P
-    - e
-  - If It is 
+      - Left-Right: 
+        1. Rotate the Node P to the Left
+        2. Repeat the steps in Left-Left case
+      - Right-Right: 
+        1. Rotate Node G towards the Left
+        2. Swap the colors of Nodes G and P
+      - Right-Left: 
+        1. Rotate the Node P towards Right
+        2. Repeat the steps in Right-Right case
 
 
 
+## Red-Black Tree Deletion
 
+
+
+## 2-3 Tree
+
+## 2-3 Insertion
+
+## 2-3 Deletion of Element at Leaf Node
+
+## 2-3 Deletion of Element at Internal Node
+
+## 2-3-4 Trees
 
 
 
@@ -433,14 +487,23 @@ If Node U (*uncle*) is **black**, then we come across four different scenarios b
 $$
 2^h or \frac{n + 1}{2}
 $$
+
+
+
 **Height:** 
 $$
 log_2(n+1) -1
 $$
+
+
+
 **Height:** 
 $$
 O(log_2n)
 $$
+
+
+
 ```mermaid
 graph TD 
 	A((1)) -->B((2))
@@ -458,6 +521,8 @@ graph TD
 $$
 Keys(SubTree1)<Keys(Y)<Keys(Subtree2)<Keys(X)<Keys(SubTree3)
 $$
+
+
 
 ```mermaid
 graph TD 
@@ -477,10 +542,15 @@ graph TD
 $$
 h<=2log_2 (n+1)
 $$
+
+
+
 **Minimum number of nodes:**
 $$
 N(h)=1+N(h-1)+N(h-2)
 $$
+
+
 
 ```mermaid
 graph TD 
@@ -508,6 +578,8 @@ graph TD
 $$
 h<=2log _2(n+1)
 $$
+
+
 
 **Minimum number of nodes:**
 $$
@@ -542,15 +614,27 @@ graph TD
 $$
 LChild.Key < X < MChild.Key < Y < RChild.Key
 $$
+
+
+
 **Maximum number of nodes:** 
 $$
 3^h
 $$
+
+
+
 **Height:** 
 $$
 log_4(n+1)−1<h<log_2(n+1)−1
 $$
+
+
+
 **Types:** *2-3-4 Trees*
+
+
+
 
 ```mermaid
 graph TD 
