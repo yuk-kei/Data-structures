@@ -12,6 +12,10 @@ public class Trie {
         return c - 'a';
     }
 
+    public TrieNode getRoot() {
+        return root;
+    }
+
     //Function to insert a key,value pair in the Trie
     public void insert(String key){
         if(key.isEmpty()){
